@@ -106,3 +106,5 @@ docker run fsir --number=2
 ```
 docker run -p 4000:4000 fsir --server-endpoint="0.0.0.0:4000"
 ```
+
+The docker image is distroless and is thus only ```~1.45MB```
