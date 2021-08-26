@@ -31,8 +31,7 @@ func main() {
 The package can also be directly used as an executable to compute the Inverse Square Root
 
 ## Compile
-```
-bash
+```bash
 
 # Create a Projects Directory
 mkdir -p ~/projects
