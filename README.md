@@ -7,13 +7,13 @@ This program is implemented in GoLang Version 1.17
 The Repo consists of a package fisr that implements the algorithm and can
 be used as a standalone package.
 To fetch the Package:
-`bash 
+```bash 
 
 go get github.com/mohakamg/fastinversesquareroot
-`
+```
 
 To use the package:
-`golang
+```go
 
 import (
 	"fmt"
@@ -25,13 +25,13 @@ func main() {
 		fmt.Println(answer)
 	}
 }
-`
+```
 
 # Binary
 The package can also be directly used as an executable to compute the Inverse Square Root
 
 ## Compile
-`
+```
 bash
 
 # Create a Projects Directory
@@ -54,7 +54,7 @@ go mod tidy
 # Compile the Binary
 cd cmd/fisrserver
 go buiid . 
-`
+```
 
 Note: In the last `go build .` command, extra flags can be specified to optimize performance
 and space depending on OS and Architecture. 
@@ -63,29 +63,29 @@ Also, this binary is self contained and does not need anything else to run.
 ## Using the Binary
 The binary file server ships with two modes:
 1. Standalone: This standalone mode can be used like an bash command with the argument `number` passed to it
-`bash
+```bash
 ./fisrserver --number 2
-`
+```
 Output: `2021/08/25 16:54:30 Result:  0.7069296`
 
 On an unix machine this binary can optionally be moved to `/usr/local/bin` to be used as an installed software
-`bash
+```bash
 cp ./firserver /usr/local/bin
 fisrserver --number 2
 2021/08/25 16:54:30 Result:  0.7069296
-`
+```
 
 2. Server Mode: An HTTP Server to calculate the Inverse Square Root
 To start the Server:
 
-`bash
+```bash
 ./fisrserver --server-endpoint="localhost:4000"
-`
+```
 
 Make Requests to it:
-`bash
+```bash
 wget -q -O - localhost:4000/fisr --post-data='{"instances": [2, 3]}'
-`
+```
 Response: `{"result":{"2":0.7069296,"3":0.5768461}}`
 
 # Docker
@@ -93,11 +93,17 @@ This repo also ships with a multistage Dockerfile that can be used to build in a
 and export another distroless container to execute the server
 
 1. Build and export
-`docker build -t fsir .`
+```
+docker build -t fsir .
+```
 
 2. Run
 2.1 Standalone
-`docker run fsir --number=2`
+```
+docker run fsir --number=2
+```
 
 2.2 Server
-`docker run -p 4000:4000 fsir --server-endpoint="0.0.0.0:4000"`
+```
+docker run -p 4000:4000 fsir --server-endpoint="0.0.0.0:4000"
+```
