@@ -108,3 +108,11 @@ docker run -p 4000:4000 fsir --server-endpoint="0.0.0.0:4000"
 ```
 
 The docker image is distroless and is thus only ```~1.45MB```
+
+# Testing
+The fisr package also consists a test file that tests if the estimated outputs are within a 0.01 margin of error
+from the baseline math.Sqrt method provided with GoLang.
+To run the test:
+```bash
+cd fisr && go test -v .
+```
